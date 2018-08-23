@@ -1,10 +1,16 @@
 package com.qa.accapp;
 
 
-public class App 
-{
+public class App {
+	private App() {
+	}
     public static void main( String[] args )
     {
-        System.out.println( "Hello World to the standard out" );
+    	Service list = new Service();
+        Account Jack = new Account("Jack","Bailey",0000);
+        Account Oli = new Account("Oli","Lambert",0001);
+        list.addToList(Jack);
+        list.addToList(Oli);
+        System.out.println(list);
     }
 }
