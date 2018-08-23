@@ -12,14 +12,6 @@ public class Account {
         this.accountNumber=accountNumber;
     }
 
-  
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", accountNumber=" + accountNumber +
-                '}';
-    }
 }
+
+ 

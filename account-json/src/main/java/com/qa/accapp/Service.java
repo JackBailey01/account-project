@@ -24,8 +24,4 @@ public class Service {
         return gsonString;
     }
 
-    @Override
-    public String toString() {
-        return accountlist.values().toString();
-    }
 }
