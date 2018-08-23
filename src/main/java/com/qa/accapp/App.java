@@ -1,7 +1,7 @@
 package com.qa.accapp;
 
 
-public class App 
+public class main App
 {
     public static void main( String[] args )
     {
