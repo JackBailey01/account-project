@@ -1,6 +1,5 @@
 package com.qa.accapp;
 
-
 public class App {
 	private App() {
 	}
@@ -11,6 +10,8 @@ public class App {
         Account Oli = new Account("Oli","Lambert",0001);
         list.addToList(Jack);
         list.addToList(Oli);
-        System.out.println(list);
+        String list2 = list.convertToJson(list);
+        System.out.println(list2);
+
     }
 }
