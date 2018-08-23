@@ -2,6 +2,8 @@ package com.qa.accapp;
 
 
 public class App {
+	private App() {
+	}
     public static void main( String[] args )
     {
     	Service list = new Service();
