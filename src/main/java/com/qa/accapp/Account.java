@@ -35,4 +35,13 @@ public class Account {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", accountNumber=" + accountNumber +
+                '}';
+    }
 }
