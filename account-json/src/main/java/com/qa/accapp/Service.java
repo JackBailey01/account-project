@@ -24,15 +24,7 @@ public class Service {
         return gsonString;
     }
 
-    public long count(String name) {
-    	int count = 0;
-     	for (int i=1;i<counter;i++) {
-    		Account a = accountlist.get(i);
-    		if (a.getFirstname().equals(name)) {
-    			count++;
-    		}
-    	}
-		
+    public long count(String name) {		
 	return accountlist.values().stream().filter(v -> v.getFirstname().equals(name)).count();	
 	}
 
