@@ -11,7 +11,7 @@ public class AppTest
     public void nameCount()
     {
         Service service = new Service();
-        int num = service.count("Jack");
+        long num = service.count("Jack");
         assertEquals(0, num);
     }
 }
