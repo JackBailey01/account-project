@@ -12,6 +12,6 @@ public class AppTest
     {
         Service service = new Service();
         int num = service.count("Jack");
-        assertEquals(2, num);
+        assertEquals(0, num);
     }
 }

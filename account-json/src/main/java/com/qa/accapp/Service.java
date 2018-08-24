@@ -24,4 +24,17 @@ public class Service {
         return gsonString;
     }
 
+    public int count(String string) {
+    	int count = 0;
+     	for (int i=1;i<counter;i++) {
+    		Account a = accountlist.get(i);
+    		if (a.getFirstname().equals(string)) {
+    			count++;
+    		}
+    	}
+		
+	return count;	
+	}
+
+
 }
