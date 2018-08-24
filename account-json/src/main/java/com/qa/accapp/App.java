@@ -12,6 +12,7 @@ public class App {
         list.addToList(Oli);
         String list2 = list.convertToJson(list);
         System.out.println(list2);
-
+        long num = list.count("Jack");
+        System.out.println(num);
     }
 }
