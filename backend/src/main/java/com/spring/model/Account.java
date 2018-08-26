@@ -1,12 +1,19 @@
 package com.spring.model;
 
-public class Account {
-    Integer AccNo;
-    String firstName;
-    String lastName;
 
-    public Account(Integer AccNo, String firstName,String lastName){
-        this.AccNo=AccNo;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "accounts")
+public class Account {
+    private Integer AccNo;
+    private String firstName;
+    private String lastName;
+
+    public Account(Integer Accno, String firstName, String lastName){
+        this.AccNo=Accno;
         this.firstName=firstName;
         this.lastName=lastName;
     }
