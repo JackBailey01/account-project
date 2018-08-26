@@ -2,16 +2,14 @@ package com.spring.levels;
 
 import com.spring.model.Account;
 import com.spring.model.AccountDao;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@RestController
+
+@Service
 public class AccountController {
-    private final AccountDao dao;
-
-    
-
-    @RequestMapping("/create")
+    @Autowired
+    AccountDao dao;
     public String create(Integer AccNo, String firstName, String lastName){
         try{
             Account account = new Account(AccNo,firstName,lastName);
@@ -22,5 +20,22 @@ public class AccountController {
         }
         return "user added successfully";
     }
-
+    public String delete(Integer AccNo){
+        try{
+            Account account = dao.findAccountByAccNo(AccNo);
+            dao.delete(account);
+        }
+        catch (Exception ex){
+            return "ERROR";
+        }
+        return "user added successfully";
+    }
+    public Account view(Integer AccNo){
+        try{
+            Account account = dao.findAccountByAccNo(AccNo);
+            return account;
+        }
+        catch (Exception ex){
+        }
+    }
 }

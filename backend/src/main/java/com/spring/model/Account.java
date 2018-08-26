@@ -3,11 +3,12 @@ package com.spring.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
+import javax.persistence.Id;
 
 @Entity
 @Table(name = "accounts")
 public class Account {
+    @Id
     private Integer AccNo;
     private String firstName;
     private String lastName;
