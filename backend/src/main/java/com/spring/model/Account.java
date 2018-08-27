@@ -9,18 +9,18 @@ import javax.persistence.Id;
 @Table(name = "accounts")
 public class Account {
     @Id
-    private Integer AccNo;
+    private Integer accNo;
     private String firstName;
     private String lastName;
 
-    public Account(Integer Accno, String firstName, String lastName){
-        this.AccNo=Accno;
+    public Account(Integer AccNo, String firstName, String lastName){
+        this.accNo=AccNo;
         this.firstName=firstName;
         this.lastName=lastName;
     }
 
     public Integer getAccNo() {
-        return AccNo;
+        return accNo;
     }
 
     public String getFirstName() {
@@ -31,8 +31,8 @@ public class Account {
         return lastName;
     }
 
-    public void setAccNo(Integer accNo) {
-        AccNo = accNo;
+    public void setAccNo(Integer AccNo) {
+        this.accNo = AccNo;
     }
 
     public void setFirstName(String firstName) {
