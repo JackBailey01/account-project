@@ -1,21 +1,27 @@
 package com.spring.levels;
 import com.spring.model.Account;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+@Controller
+@RequestMapping("accounts")
+public class intro{
+    @Autowired
+    private BusinessLogic service;
 
-@RestController("/accounts")
-public class intro {
 
-    @GetMapping("/view/{id}")
-    public static String viewAccount(@PathVariable Integer id){
-        Account account = BusinessLogic.view(id);
-        System.out.println(BusinessLogic.convertToJson(account));
-        return BusinessLogic.convertToJson(account);
+    @GetMapping("view/{id}")
+    public ResponseEntity<Account> viewAccount(@PathVariable("id") Integer id){
+        Account account = service.view(id);
+        return new ResponseEntity<Account>(account, HttpStatus.OK);
     }
 
-    @PostMapping("/create")
-    public void createAccount(@PathVariable Integer AccNo, @PathVariable String firstName, @PathVariable String lastName){
-        BusinessLogic.create(AccNo, firstName,lastName);
+    @PostMapping("create/{AccNo}/{firstName}/{lastName}")
+    public void createAccount(@PathVariable("AccNo") Integer AccNo, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
+        service.create(AccNo, firstName,lastName);
     }
 
 
