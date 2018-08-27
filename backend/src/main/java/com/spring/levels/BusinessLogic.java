@@ -12,7 +12,10 @@ public class BusinessLogic {
     private AccountDao dao;
 
     public void create(Integer AccNo, String firstName, String lastName){
-        Account account = new Account(AccNo,firstName,lastName);
+        Account account = new Account();
+        account.setFirstName(firstName);
+        account.setLastName(lastName);
+        account.setAccNo(AccNo);
         dao.createAccount(account);
     }
     /*public static void delete(Integer AccNo){
