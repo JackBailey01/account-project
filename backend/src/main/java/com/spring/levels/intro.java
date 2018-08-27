@@ -1,17 +1,20 @@
 package com.spring.levels;
-
 import com.spring.model.Account;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController("/accounts")
 public class intro {
 
-    @RequestMapping(value = "/view/{AccNo}", method = RequestMethod.GET)
-    public Account viewAccount(@PathVariable Integer AccNo){
-        return BusinessLogic.view(AccNo);
+    @GetMapping("/view/{id}")
+    public static String viewAccount(@PathVariable Integer id){
+        Account account = BusinessLogic.view(id);
+        System.out.println(BusinessLogic.convertToJson(account));
+        return BusinessLogic.convertToJson(account);
     }
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void viewAccount(@PathVariable Integer AccNo, @PathVariable String firstName, @PathVariable String lastName){
+
+    @PostMapping("/create")
+    public void createAccount(@PathVariable Integer AccNo, @PathVariable String firstName, @PathVariable String lastName){
         BusinessLogic.create(AccNo, firstName,lastName);
     }
 
