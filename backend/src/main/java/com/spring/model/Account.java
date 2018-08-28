@@ -2,16 +2,17 @@ package com.spring.model;
 
 
 import javax.persistence.*;
-import java.io.Serializable;
+
 
 @Entity
 @Table(name="accounts")
-public class Account implements Serializable {
-    private Account(){}
+public class Account{
+    public Account(){}
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="AccNo")
-    private Integer AccNo;
+    @Column(name="accNo")
+    private Integer accNo;
 
     @Column(name="firstName")
     private String firstName;
@@ -19,14 +20,13 @@ public class Account implements Serializable {
     @Column(name="lastName")
     private String lastName;
 
-    public Account(Integer AccNo, String firstName, String lastName){
-        this.AccNo=AccNo;
+    public Account(Integer accNo, String firstName, String lastName){
+        this.accNo=accNo;
         this.firstName=firstName;
         this.lastName=lastName;
     }
-
     public Integer getAccNo() {
-        return AccNo;
+        return accNo;
     }
 
     public String getFirstName() {
@@ -38,7 +38,7 @@ public class Account implements Serializable {
     }
 
     public void setAccNo(Integer AccNo) {
-        this.AccNo = AccNo;
+        this.accNo = accNo;
     }
 
     public void setFirstName(String firstName) {

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface AccountDao extends CrudRepository<Account, Integer> {
-    Account getByID(Integer id);
+public interface AccountRepositoryCustom {
+    Account getById(Integer id);
 }

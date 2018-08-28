@@ -14,20 +14,23 @@ public class intro{
     private BusinessService service;
 
 
-    @GetMapping("view/{id}")
-    public ResponseEntity<Account> viewAccount(@PathVariable("id") Integer id){
-        Account account = service.view(id);
+    @GetMapping("view/{accNo}")
+    public ResponseEntity<Account> viewAccount(@PathVariable("accNo") Integer accNo){
+        Account account = service.view(accNo);
         return new ResponseEntity<>(account, HttpStatus.OK);
     }
 
-    @PostMapping("create/{AccNo}/{firstName}/{lastName}")
-    public void createAccount(@PathVariable("AccNo") Integer AccNo, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
-        service.create(AccNo, firstName,lastName);
+    @PostMapping("create/{firstName}/{lastName}")
+    public void createAccount(@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
+        service.create(firstName,lastName);
     }
-    @PostMapping("delete/{AccNo}")
-    public void createAccount(@PathVariable("AccNo") Integer AccNo){
+    @DeleteMapping("delete/{accNo}")
+    public void delete(@PathVariable("accNo") Integer AccNo){
         service.delete(AccNo);
     }
 
-
+    @PutMapping("Update/{accNo}/{firstName}/{lastName}")
+    public void updateAccount(@PathVariable("accNo") Integer accNo, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
+        service.update(accNo,firstName,lastName);
+    }
 }
