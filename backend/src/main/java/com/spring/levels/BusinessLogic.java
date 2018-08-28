@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class BusinessLogic {
+public class BusinessLogic implements BusinessService{
 
     @Autowired
     private AccountDao dao;
@@ -16,16 +16,15 @@ public class BusinessLogic {
         account.setFirstName(firstName);
         account.setLastName(lastName);
         account.setAccNo(AccNo);
-        dao.createAccount(account);
+        dao.save(account);
     }
-    /*public static void delete(Integer AccNo){
-        Account error = new Account(0, "error","error");
-        Account account = dao.findById(AccNo).orElse(error);;
+    public void delete(Integer AccNo){
+        Account account = dao.getByID(AccNo);
         dao.delete(account);
 
-    }*/
+    }
     public Account view(Integer id){
-        Account account = dao.getAccount(id);
+        Account account = dao.getByID(id);
         return account;
 
     }

@@ -9,19 +9,24 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("accounts")
 public class intro{
+
     @Autowired
-    private BusinessLogic service;
+    private BusinessService service;
 
 
     @GetMapping("view/{id}")
     public ResponseEntity<Account> viewAccount(@PathVariable("id") Integer id){
         Account account = service.view(id);
-        return new ResponseEntity<Account>(account, HttpStatus.OK);
+        return new ResponseEntity<>(account, HttpStatus.OK);
     }
 
     @PostMapping("create/{AccNo}/{firstName}/{lastName}")
     public void createAccount(@PathVariable("AccNo") Integer AccNo, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
         service.create(AccNo, firstName,lastName);
+    }
+    @PostMapping("delete/{AccNo}")
+    public void createAccount(@PathVariable("AccNo") Integer AccNo){
+        service.delete(AccNo);
     }
 
 
