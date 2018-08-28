@@ -7,7 +7,7 @@ import java.io.Serializable;
 @Entity
 @Table(name="accounts")
 public class Account implements Serializable {
-    public Account(){}
+    private Account(){}
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="AccNo")
