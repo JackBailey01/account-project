@@ -11,7 +11,14 @@ public class Account {
         this.lastName=lastName;
         this.accountNumber=accountNumber;
     }
-
+    
+    public String toString() { 
+        return firstName + " " + lastName + " " + accountNumber;
+    } 
+    
+    public String getFirstname() {
+    	return firstName;
+    }
 }
 
  

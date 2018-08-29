@@ -24,4 +24,9 @@ public class Service {
         return gsonString;
     }
 
+    public long count(String name) {		
+	return accountlist.values().stream().filter(v -> v.getFirstname().equals(name)).count();	
+	}
+
+
 }
