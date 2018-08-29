@@ -5,6 +5,7 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -23,8 +24,9 @@ public class AccountRepositoryImpl implements AccountRepositoryCustom {
 
     @Override
     public List<Account> getAllAccounts(){
-        TypedQuery query = entityManager.createQuery("select A from accounts",Account.class);
-        return query.getResultList();
+        Query query = entityManager.createQuery("SELECT r FROM accounts r", Account.class);
+        List<Account> accounts = (List<Account>) query.getResultList();
+        return accounts;
 
     }
 

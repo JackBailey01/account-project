@@ -3,10 +3,11 @@ import com.spring.model.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.List;
+
+@RestController
 @RequestMapping("accounts")
 public class intro{
 
@@ -20,17 +21,31 @@ public class intro{
         return new ResponseEntity<>(account, HttpStatus.OK);
     }
 
+    @GetMapping("viewAll")
+    public ResponseEntity<List<Account>> viewAll(){
+        List<Account> accounts = service.getAllAccounts();
+        return new ResponseEntity<>(accounts,HttpStatus.OK);
+    }
+
+
     @PostMapping("create/{firstName}/{lastName}")
-    public void createAccount(@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
+    public ResponseEntity<String> createAccount(@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
         service.create(firstName,lastName);
+        return new ResponseEntity<>("success", HttpStatus.OK);
+
     }
     @DeleteMapping("delete/{accNo}")
-    public void delete(@PathVariable("accNo") Integer AccNo){
+    public ResponseEntity<String> delete(@PathVariable("accNo") Integer AccNo){
         service.delete(AccNo);
+        return new ResponseEntity<>("success", HttpStatus.OK);
+
     }
 
     @PutMapping("Update/{accNo}/{firstName}/{lastName}")
-    public void updateAccount(@PathVariable("accNo") Integer accNo, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
+    public ResponseEntity<String> updateAccount(@PathVariable("accNo") Integer accNo, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
         service.update(accNo,firstName,lastName);
+        return new ResponseEntity<>("success", HttpStatus.OK);
+
     }
+
 }
